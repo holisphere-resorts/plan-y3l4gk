@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pl"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex, nofollow, noarchive">
+<title>Rozmowa — wpisz w 30 sekund</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#1B1F1C;--mute:#6F746F;--paper:#F6F3EC;--line:#E3DDCF;--green:#0E3220;--gold:#B8923E}
+*{box-sizing:border-box} html{color-scheme:light}
+body{margin:0;background:var(--paper);color:var(--ink);font:16px/1.5 Inter,Arial,sans-serif;overflow-x:hidden}
+header{background:var(--green);color:#EAE6DB;padding:26px 6vw 22px}
+.kicker{font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:#C9AE72}
+h1{font-family:"Cormorant Garamond",Georgia,serif;font-weight:600;font-size:40px;line-height:1;margin:6px 0 0;color:#FBF1D6}
+p.sub{margin:8px 0 0;color:#C9AE72;font-size:14px}
+main{padding:20px 6vw 60px;max-width:640px}
+label{display:block;font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--mute);margin:16px 0 6px;font-weight:600}
+input,textarea,select{width:100%;font:inherit;padding:12px 14px;border:1px solid var(--line);border-radius:12px;background:#fff;color:var(--ink)}
+textarea{min-height:84px;resize:vertical}
+.seg{display:flex;flex-wrap:wrap;gap:8px}
+.seg label{display:inline;margin:0;letter-spacing:0;text-transform:none;font-size:14px;font-weight:500;color:var(--ink)}
+.seg input{display:none}
+.seg span{display:inline-block;padding:10px 14px;border:1px solid var(--line);border-radius:999px;background:#fff;cursor:pointer;font-size:14px}
+.seg input:checked+span{background:var(--green);color:#FBF1D6;border-color:var(--green)}
+.seg.res input:checked+span.ok{background:#2E7D4F;border-color:#2E7D4F}
+.seg.res input:checked+span.wait{background:var(--gold);border-color:var(--gold)}
+.seg.res input:checked+span.no{background:#A94442;border-color:#A94442}
+button{margin-top:22px;width:100%;font:inherit;font-weight:600;padding:16px;border:0;border-radius:14px;background:#25D366;color:#fff;font-size:17px;cursor:pointer}
+.hint{color:var(--mute);font-size:13px;margin-top:10px;text-align:center}
+</style></head><body>
+<header><div class="kicker">HOLISPHERE · BIOLEAFHUB · TechFun</div><h1>Rozmowa</h1><p class="sub">Po telefonie lub spotkaniu: 30 sekund, potem WhatsApp do Tatsiany/Reiny. Ona wpisze to do pipeline.</p></header>
+<main>
+<form id="f" onsubmit="return go()">
+  <label>Biznes</label>
+  <div class="seg">
+    <label><input type="radio" name="biz" value="CBD" checked><span>CBD</span></label>
+    <label><input type="radio" name="biz" value="TechFun"><span>TechFun</span></label>
+    <label><input type="radio" name="biz" value="HOLISPHERE"><span>HOLISPHERE</span></label>
+  </div>
+  <label for="firma">Firma lub osoba</label><input id="firma" placeholder="np. Hemp Trade GmbH, Klaus" required>
+  <label for="kraj">Kraj / miasto</label><input id="kraj" placeholder="np. Niemcy, Hamburg">
+  <label>Wynik</label>
+  <div class="seg res">
+    <label><input type="radio" name="res" value="zainteresowany" checked><span class="ok">zainteresowany</span></label>
+    <label><input type="radio" name="res" value="do dalszej rozmowy"><span class="ok">do dalszej rozmowy</span></label>
+    <label><input type="radio" name="res" value="spotkanie"><span class="ok">spotkanie</span></label>
+    <label><input type="radio" name="res" value="nie teraz"><span class="wait">nie teraz</span></label>
+    <label><input type="radio" name="res" value="brak odpowiedzi"><span class="wait">brak odpowiedzi</span></label>
+    <label><input type="radio" name="res" value="odmowa"><span class="no">odmowa</span></label>
+  </div>
+  <label for="co">Co powiedzieli (pytania, wątpliwości, powód odmowy)</label><textarea id="co" placeholder="np. pytają o cenę za kg i certyfikaty; boją się przepisów w Niemczech"></textarea>
+  <label for="krok">Następny krok i kiedy</label><input id="krok" placeholder="np. wysłać cennik do piątku, zadzwonić 20.09">
+  <button type="submit">Wyślij do Tatsiany/Reiny na WhatsApp</button>
+  <div class="hint">Otworzy się WhatsApp z gotową wiadomością. Nic nie trzeba dopisywać, tylko „wyślij”.</div>
+</form>
+<script>
+function go(){
+  const v=id=>document.getElementById(id).value.trim();
+  const biz=document.querySelector('input[name=biz]:checked').value, res=document.querySelector('input[name=res]:checked').value;
+  const d=new Date(), dd=d.toISOString().slice(0,10);
+  const msg="Rozmowa ("+dd+")\nBiznes: "+biz+"\nFirma: "+v('firma')+"\nKraj: "+v('kraj')+"\nWynik: "+res+"\nCo powiedzieli: "+v('co')+"\nNastępny krok: "+v('krok');
+  window.open("https://wa.me/48452872217?text="+encodeURIComponent(msg),"_blank");
+  return false;
+}
+</script>
+</main></body></html>
