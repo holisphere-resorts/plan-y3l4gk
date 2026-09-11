@@ -7,288 +7,511 @@
 <title>Wszystkie linki — HOLISPHERE · BIOLEAFHUB · TechFun</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
-  :root{
-    --ink:#1d2320;
-    --muted:#5d6b62;
-    --line:#d9e0da;
-    --bg:#ffffff;
-    --panel:#f4f7f4;
-    --accent:#1f5c3a;
-    --gold:#8a6f28;
+:root{
+  --paper:#F7F4EC;
+  --card:#FFFDF6;
+  --ink:#1C2119;
+  --muted:#5E6A5C;
+  --rule:#E0D8C5;
+  --green-deep:#123524;
+  --green-dark:#0f2a1c;
+  --gold:#C9A24A;
+  --gold-ink:#8A6B22;
+  --serif:"Cormorant Garamond", "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+  --sans:"Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", "Source Sans 3", Helvetica, Arial, sans-serif;
+  --mono:ui-monospace, "SF Mono", SFMono-Regular, Menlo, "DejaVu Sans Mono", monospace;
+}
+*{box-sizing:border-box;}
+html{-webkit-text-size-adjust:100%;}
+body{
+  margin:0;
+  background:var(--paper);
+  color:var(--ink);
+  font-family:var(--sans);
+  font-size:17px;
+  line-height:1.55;
+  -webkit-font-smoothing:antialiased;
+}
+.doc{max-width:560px;margin:0 auto;background:var(--paper);}
+
+/* ---------- COVER ---------- */
+.cover{
+  background:var(--green-dark);
+  color:#F2EEE2;
+  padding:34px 26px 30px;
+  position:relative;
+}
+.cover::after{
+  content:"";position:absolute;inset:12px;
+  border:1px solid rgba(201,162,74,.38);
+  pointer-events:none;
+}
+.cover-inner{position:relative;z-index:1;}
+.eyebrow{
+  font-size:12px;font-weight:600;
+  letter-spacing:.18em;text-transform:uppercase;
+  color:var(--gold);margin:0 0 26px;
+}
+.cover h1{
+  font-family:var(--serif);
+  font-weight:400;
+  font-size:52px;line-height:1.02;
+  letter-spacing:.005em;
+  margin:0 0 14px;
+  color:#FBF8EF;
+}
+.cover-sub{
+  font-size:14px;font-weight:600;letter-spacing:.11em;
+  color:rgba(242,238,226,.82);margin:0 0 22px;text-transform:none;
+}
+.gold-rule{height:1px;background:linear-gradient(90deg,var(--gold),rgba(201,162,74,.12));margin:0 0 20px;border:0;}
+.index{list-style:none;margin:0 0 24px;padding:0;}
+.index li{
+  display:flex;align-items:baseline;gap:10px;
+  padding:7px 0;border-bottom:1px solid rgba(242,238,226,.13);
+  font-size:15px;
+}
+.index li:last-child{border-bottom:0;}
+.index .ix-name{font-family:var(--serif);font-size:21px;font-weight:500;color:#FBF8EF;flex:0 0 auto;}
+.index .ix-dot{flex:1 1 auto;height:1px;background:rgba(242,238,226,.16);}
+.index .ix-count{flex:0 0 auto;font-size:13px;color:rgba(242,238,226,.66);letter-spacing:.02em;}
+.cover-hint{font-size:15px;color:rgba(242,238,226,.86);margin:0 0 6px;}
+.cover-date{font-size:13px;color:rgba(242,238,226,.6);margin:0 0 22px;letter-spacing:.04em;}
+.cover-online{
+  font-size:13px;line-height:1.5;color:rgba(242,238,226,.72);
+  border-top:1px solid rgba(201,162,74,.3);padding-top:14px;margin:0;
+}
+.cover-online a{color:var(--gold);text-decoration:none;font-family:var(--mono);font-size:12px;overflow-wrap:anywhere;word-break:break-word;display:block;margin-top:4px;}
+
+/* ---------- SECTIONS ---------- */
+.sec{padding:0 18px 34px;}
+.sec-head{
+  background:var(--acc);
+  color:#FAF7EE;
+  margin:0 -18px 0;
+  padding:22px 18px 18px;
+  border-bottom:2px solid var(--gold);
+}
+.sec-head .eyebrow{margin:0 0 8px;color:var(--gold);}
+.sec-head h2{
+  font-family:var(--serif);font-weight:400;
+  font-size:34px;line-height:1.08;margin:0;
+  color:#FBF8EF;letter-spacing:.005em;
+}
+.lead{
+  font-size:15px;color:var(--muted);
+  margin:16px 0 20px;max-width:44em;
+}
+
+/* ---------- LINK CARDS ---------- */
+.cards{display:block;}
+.card{
+  display:block;text-decoration:none;color:inherit;
+  background:var(--card);
+  border:1px solid var(--rule);
+  border-left:3px solid var(--acc);
+  border-radius:2px;
+  padding:15px 16px 14px 15px;
+  margin:0 0 12px;
+  position:relative;
+}
+.card-name{
+  display:block;
+  font-size:17px;font-weight:600;line-height:1.3;
+  color:var(--ink);
+  padding-right:26px;
+  margin:0 0 5px;
+  letter-spacing:-.005em;
+}
+.arrow{
+  position:absolute;top:17px;right:15px;
+  width:13px;height:13px;
+  stroke:var(--gold);stroke-width:1.8;fill:none;
+  stroke-linecap:round;stroke-linejoin:round;
+}
+.card-desc{display:block;font-size:14.5px;line-height:1.5;color:var(--muted);margin:0 0 10px;}
+.card-for{
+  display:inline-block;
+  font-size:12px;font-weight:600;letter-spacing:.03em;
+  color:var(--gold-ink);
+  background:rgba(201,162,74,.12);
+  border-radius:2px;padding:2px 7px;
+  margin:0 0 10px;
+}
+.card-url{
+  display:block;
+  font-family:var(--mono);
+  font-size:12px;line-height:1.5;
+  color:var(--acc);
+  overflow-wrap:anywhere;word-break:break-word;
+  border-top:1px solid var(--rule);
+  padding-top:8px;
+}
+.card--soon{border-left-color:var(--rule);}
+.card--soon .card-name{color:var(--muted);}
+.card--soon .card-url{color:var(--muted);font-family:var(--sans);font-size:13px;font-style:italic;}
+
+/* ---------- NOTE + FOOTER ---------- */
+.close{padding:0 18px 40px;}
+.note{
+  background:#F1ECDD;
+  border:1px solid var(--rule);
+  border-top:2px solid var(--gold);
+  border-radius:2px;
+  padding:16px 17px;
+  font-size:14.5px;line-height:1.55;color:var(--ink);
+  margin:0 0 22px;
+}
+.note b{display:block;font-family:var(--serif);font-size:21px;font-weight:600;margin:0 0 6px;color:var(--green-deep);}
+.foot{
+  border-top:1px solid var(--rule);padding-top:14px;
+  font-size:13px;line-height:1.55;color:var(--muted);
+}
+.foot a{color:var(--gold-ink);font-family:var(--mono);font-size:12px;overflow-wrap:anywhere;word-break:break-word;text-decoration:none;}
+.foot .fbrand{font-family:var(--serif);font-size:17px;color:var(--green-deep);display:block;margin-bottom:4px;}
+
+@media (min-width:620px){
+  .cover{padding:52px 40px 44px;}
+  .cover h1{font-size:64px;}
+  .sec{padding:0 30px 40px;}
+  .sec-head{margin:0 -30px 0;padding:26px 30px 22px;}
+  .close{padding:0 30px 48px;}
+}
+
+/* ---------- PRINT: phone-friendly narrow page ---------- */
+@media print{
+  @page{size:120mm 213mm;margin:14mm 11mm;}
+  @page:first{margin:0;}
+  html,body{background:#fff;}
+  body{font-size:11.5pt;line-height:1.5;}
+  .doc{max-width:none;margin:0;background:none;}
+  a{color:inherit;}
+
+  .cover{
+    width:120mm;height:213mm;
+    padding:20mm 15mm 16mm;
+    break-after:page;page-break-after:always;
+    -webkit-print-color-adjust:exact;print-color-adjust:exact;
+    display:flex;flex-direction:column;
   }
-  *{box-sizing:border-box;}
-  html{-webkit-text-size-adjust:100%;}
-  body{
-    margin:0;
-    background:var(--bg);
-    color:var(--ink);
-    font-family:"Source Sans 3", -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
-    font-size:17px;
-    line-height:1.6;
+  .cover::after{inset:8mm;}
+  .cover-inner{display:flex;flex-direction:column;height:100%;}
+  .eyebrow{font-size:11pt;letter-spacing:.16em;margin:0 0 16mm;}
+  .cover h1{font-size:40pt;margin:0 0 5mm;}
+  .cover-sub{font-size:11.5pt;letter-spacing:.09em;margin:0 0 7mm;}
+  .gold-rule{margin:0 0 6mm;}
+  .index{margin:0 0 auto;}
+  .index li{font-size:11pt;padding:2.4mm 0;}
+  .index .ix-name{font-size:16pt;}
+  .index .ix-count{font-size:11pt;}
+  .cover-hint{font-size:11.5pt;margin:6mm 0 1.5mm;}
+  .cover-date{font-size:11pt;margin:0 0 5mm;}
+  .cover-online{font-size:11pt;padding-top:4mm;}
+  .cover-online a{font-size:11pt;margin-top:1.5mm;}
+
+  .sec{
+    padding:0;
+    break-before:page;page-break-before:always;
   }
-  .wrap{max-width:900px;margin:0 auto;padding:40px 20px 64px;}
-  header{border-bottom:3px solid var(--accent);padding-bottom:18px;margin-bottom:26px;}
-  h1{font-size:30px;line-height:1.25;margin:0 0 8px;letter-spacing:-0.01em;}
-  .date{font-size:15px;color:var(--muted);margin:0 0 12px;font-weight:600;text-transform:uppercase;letter-spacing:0.06em;}
-  .intro{font-size:18px;margin:0 0 14px;}
-  .online{font-size:16px;background:var(--panel);border-left:4px solid var(--gold);padding:10px 14px;margin:0;border-radius:0 6px 6px 0;}
-  .online a{word-break:break-all;}
-  h2{
-    font-size:22px;margin:0 0 6px;padding:0 0 6px;
-    border-bottom:2px solid var(--line);
+  .sec-head{
+    margin:0;padding:5mm 5mm 4.2mm;
+    -webkit-print-color-adjust:exact;print-color-adjust:exact;
+    break-after:avoid;page-break-after:avoid;break-inside:avoid;
   }
-  section{margin-top:38px;}
-  section:first-of-type{margin-top:30px;}
-  .lead{font-size:16px;color:var(--muted);margin:0 0 14px;}
-  table{width:100%;border-collapse:collapse;margin:0 0 8px;font-size:16px;}
-  thead th{
-    text-align:left;background:var(--panel);color:var(--ink);
-    font-size:14px;text-transform:uppercase;letter-spacing:0.05em;
-    padding:8px 10px;border-bottom:2px solid var(--line);
+  .sec-head .eyebrow{font-size:11pt;margin:0 0 2mm;}
+  .sec-head h2{font-size:24pt;}
+  .lead{font-size:11.5pt;line-height:1.42;margin:4mm 0 4mm;break-before:avoid;page-break-before:avoid;break-inside:avoid;}
+
+  .card{
+    padding:3.2mm 4mm 3mm;margin:0 0 2.8mm;
+    break-inside:avoid;page-break-inside:avoid;
+    -webkit-print-color-adjust:exact;print-color-adjust:exact;
   }
-  td{padding:12px 10px;border-bottom:1px solid var(--line);vertical-align:top;}
-  td.co{width:30%;font-weight:600;}
-  td.link{width:38%;}
-  td.kto{width:14%;color:var(--muted);}
-  td.uwaga{width:18%;color:var(--muted);font-size:15px;}
-  .name{display:block;margin-bottom:3px;}
-  a{color:var(--accent);text-decoration:underline;text-underline-offset:2px;}
-  a.url{font-size:14px;word-break:break-all;line-height:1.45;display:inline-block;}
-  .note{
-    margin-top:40px;padding:16px 18px;background:var(--panel);
-    border:1px solid var(--line);border-radius:8px;font-size:16px;
-  }
-  .note strong{color:var(--gold);}
-  footer{margin-top:26px;font-size:14px;color:var(--muted);border-top:1px solid var(--line);padding-top:12px;}
-  @media (max-width:640px){
-    body{font-size:16px;}
-    .wrap{padding:24px 16px 40px;}
-    h1{font-size:24px;}
-    table, thead, tbody, tr, td{display:block;width:100%;}
-    thead{display:none;}
-    tr{border-bottom:2px solid var(--line);padding:10px 0;}
-    td{border:none;padding:3px 0;width:auto!important;}
-    td.co{font-size:18px;}
-    td.kto:before{content:"Dla kogo: ";}
-    td.uwaga:before{content:"Uwaga: ";}
-  }
-  @media print{
-    body{font-size:11.5pt;}
-    .wrap{max-width:none;padding:0;}
-    a{color:#1f5c3a;}
-    section{break-before:page;page-break-before:always;}
-    section:first-of-type{break-before:auto;page-break-before:auto;}
-    tr{break-inside:avoid;page-break-inside:avoid;}
-    .note{break-inside:avoid;}
-    @page{margin:16mm 14mm;}
-  }
+  .card-name{font-size:12.5pt;line-height:1.25;margin:0 0 1.2mm;padding-right:7mm;}
+  .arrow{top:3.9mm;right:4mm;width:3.2mm;height:3.2mm;}
+  .card-desc{font-size:11pt;line-height:1.38;margin:0 0 1.8mm;}
+  .card-for{font-size:11pt;font-weight:500;padding:0.2mm 1.8mm;margin:0 0 1.8mm;}
+  .card-url{font-size:11pt;line-height:1.36;padding-top:1.6mm;}
+  .card--soon .card-url{font-size:11pt;}
+
+  .close{padding:0;break-before:page;page-break-before:always;}
+  .note{padding:5mm;font-size:11.5pt;margin:0 0 6mm;break-inside:avoid;-webkit-print-color-adjust:exact;print-color-adjust:exact;}
+  .note b{font-size:17pt;}
+  .foot{font-size:11pt;padding-top:4mm;}
+  .foot a{font-size:11pt;}
+  .foot .fbrand{font-size:14pt;}
+}
 </style>
 </head>
 <body>
-<div class="wrap">
+<div class="doc">
 
-<header>
-  <h1>Wszystkie linki — HOLISPHERE · BIOLEAFHUB · TechFun</h1>
-  <p class="date">stan: 11.09.2026</p>
-  <p class="intro">Jeden dokument, wszystkie adresy. Kliknij nazwę — otworzy się strona.</p>
-  <p class="online">Ten dokument online: <a href="https://holisphere-resorts.github.io/plan-y3l4gk/linki.html">https://holisphere-resorts.github.io/plan-y3l4gk/linki.html</a></p>
-</header>
-
-<section>
-  <h2>1. Wspólne — dla całego zespołu</h2>
-  <p class="lead">Plan pracy, formularz po rozmowie, strategia i główna strona w Notion.</p>
-  <table>
-    <thead><tr><th>Co to</th><th>Link</th><th>Dla kogo</th><th>Uwaga</th></tr></thead>
-    <tbody>
-      <tr>
-        <td class="co">Plan pracy (backlog) trzech biznesów</td>
-        <td class="link"><a class="url" href="https://holisphere-resorts.github.io/plan-y3l4gk/">https://holisphere-resorts.github.io/plan-y3l4gk/</a></td>
-        <td class="kto">Marek, Tomek, Tatsiana/Reina</td>
-        <td class="uwaga">Zakładki u góry: Backlog, Kalendarz, Lista, Oś czasu, Zakupy. Przyciski „Marek” i „Tomek” pokazują tylko Twoje prośby.</td>
-      </tr>
-      <tr>
-        <td class="co">Formularz po rozmowie telefonicznej (30 sekund)</td>
-        <td class="link"><a class="url" href="https://holisphere-resorts.github.io/plan-y3l4gk/rozmowa.html">https://holisphere-resorts.github.io/plan-y3l4gk/rozmowa.html</a></td>
-        <td class="kto">Marek</td>
-        <td class="uwaga">Zaraz po telefonie do firmy: kilka kliknięć, gotowy tekst wysyłasz na WhatsApp.</td>
-      </tr>
-      <tr>
-        <td class="co">Strategia — dokąd idziemy</td>
-        <td class="link"><a class="url" href="https://holisphere-resorts.github.io/plan-y3l4gk/strategia.html">https://holisphere-resorts.github.io/plan-y3l4gk/strategia.html</a></td>
-        <td class="kto">Marek, Tomek</td>
-        <td class="uwaga">Cele i kolejne kroki, bez szczegółów technicznych.</td>
-      </tr>
-      <tr>
-        <td class="co">Ten dokument online — wszystkie linki</td>
-        <td class="link"><a class="url" href="https://holisphere-resorts.github.io/plan-y3l4gk/linki.html">https://holisphere-resorts.github.io/plan-y3l4gk/linki.html</a></td>
-        <td class="kto">cały zespół</td>
-        <td class="uwaga">Adres stały. Gdy dojdzie nowa strona, dopisujemy ją tutaj.</td>
-      </tr>
-      <tr>
-        <td class="co">Notion — strona główna START</td>
-        <td class="link"><a class="url" href="https://app.notion.com/p/3d89d5e31acf818b84a0e529fcebd8bf">https://app.notion.com/p/3d89d5e31acf818b84a0e529fcebd8bf</a></td>
-        <td class="kto">cały zespół</td>
-        <td class="uwaga">Wspólne miejsce na dokumenty i zadania. Trzeba być zaproszonym — jeśli nie wchodzi, napisz do Tatsiany/Reiny.</td>
-      </tr>
-    </tbody>
-  </table>
+<section class="cover">
+  <div class="cover-inner">
+    <p class="eyebrow">Dokument wewnętrzny zespołu</p>
+    <h1>Wszystkie<br>linki</h1>
+    <p class="cover-sub">HOLISPHERE · BIOLEAFHUB · TechFun</p>
+    <hr class="gold-rule">
+    <ul class="index">
+      <li><span class="ix-name">Wspólne</span><span class="ix-dot"></span><span class="ix-count">5 adresów</span></li>
+      <li><span class="ix-name">BIOLEAFHUB</span><span class="ix-dot"></span><span class="ix-count">10 adresów</span></li>
+      <li><span class="ix-name">HOLISPHERE</span><span class="ix-dot"></span><span class="ix-count">8 adresów</span></li>
+      <li><span class="ix-name">TechFun</span><span class="ix-dot"></span><span class="ix-count">1 adres</span></li>
+    </ul>
+    <p class="cover-hint">Kliknij nazwę — otworzy się strona.</p>
+    <p class="cover-date">stan: 11.09.2026</p>
+    <p class="cover-online">Ten dokument online: <a href="https://holisphere-resorts.github.io/plan-y3l4gk/linki.html">https://holisphere-resorts.github.io/plan-y3l4gk/linki.html</a></p>
+  </div>
 </section>
 
-<section>
-  <h2>2. BIOLEAFHUB — strony demo, sklep EIRRA, Notion</h2>
-  <p class="lead">Siedem pomysłów na stronę firmy. Najpierw otwórz menu — z niego wchodzi się do wszystkich siedmiu. Niżej adresy każdej strony osobno.</p>
-  <table>
-    <thead><tr><th>Co to</th><th>Link</th><th>Dla kogo</th><th>Uwaga</th></tr></thead>
-    <tbody>
-      <tr>
-        <td class="co">Menu — wszystkie 7 stron demo w jednym miejscu</td>
-        <td class="link"><a class="url" href="https://holisphere-resorts.github.io/bioleafhub-demo-sites-89zz6m/">https://holisphere-resorts.github.io/bioleafhub-demo-sites-89zz6m/</a></td>
-        <td class="kto">Marek, Tomek</td>
-        <td class="uwaga">Zacznij stąd. Przy każdym demo jest krótki opis.</td>
-      </tr>
-      <tr>
-        <td class="co">Demo 1 — butik / jubiler</td>
-        <td class="link"><a class="url" href="https://holisphere-resorts.github.io/bioleafhub-demo-sites-89zz6m/demo-v1/">https://holisphere-resorts.github.io/bioleafhub-demo-sites-89zz6m/demo-v1/</a></td>
-        <td class="kto">Marek</td>
-        <td class="uwaga">Wygląd marki luksusowej: dużo miejsca, spokojne kolory, produkt jak biżuteria.</td>
-      </tr>
-      <tr>
-        <td class="co">Demo 2 — apteka / laboratorium</td>
-        <td class="link"><a class="url" href="https://holisphere-resorts.github.io/bioleafhub-demo-sites-89zz6m/demo-v2/">https://holisphere-resorts.github.io/bioleafhub-demo-sites-89zz6m/demo-v2/</a></td>
-        <td class="kto">Marek</td>
-        <td class="uwaga">Czysto, biało, badania i liczby na pierwszym planie. Karta dostawcy dla firm.</td>
-      </tr>
-      <tr>
-        <td class="co">Demo 3 — natura / rzemiosło</td>
-        <td class="link"><a class="url" href="https://holisphere-resorts.github.io/bioleafhub-demo-sites-89zz6m/demo-v3/">https://holisphere-resorts.github.io/bioleafhub-demo-sites-89zz6m/demo-v3/</a></td>
-        <td class="kto">Marek</td>
-        <td class="uwaga">Pole, ręczna robota, ciepłe zdjęcia.</td>
-      </tr>
-      <tr>
-        <td class="co">Premium 1 — Material Atlas</td>
-        <td class="link"><a class="url" href="https://holisphere-resorts.github.io/bioleafhub-demo-sites-89zz6m/premium/01-bioleafhub-material-atlas/">https://holisphere-resorts.github.io/bioleafhub-demo-sites-89zz6m/premium/01-bioleafhub-material-atlas/</a></td>
-        <td class="kto">Marek, Tomek</td>
-        <td class="uwaga">Strona jak katalog materiałów: surowiec, badanie, formuła.</td>
-      </tr>
-      <tr>
-        <td class="co">Premium 2 — EIRRA, Objects of Quiet</td>
-        <td class="link"><a class="url" href="https://holisphere-resorts.github.io/bioleafhub-demo-sites-89zz6m/premium/02-eirra-objects-of-quiet/">https://holisphere-resorts.github.io/bioleafhub-demo-sites-89zz6m/premium/02-eirra-objects-of-quiet/</a></td>
-        <td class="kto">Marek, Tomek</td>
-        <td class="uwaga">Marka EIRRA jako ciche, drogie przedmioty. Styl magazynu.</td>
-      </tr>
-      <tr>
-        <td class="co">Premium 3 — EIRRA, Hemp Estate 360</td>
-        <td class="link"><a class="url" href="https://holisphere-resorts.github.io/bioleafhub-demo-sites-89zz6m/premium/03-eirra-hemp-estate-360/">https://holisphere-resorts.github.io/bioleafhub-demo-sites-89zz6m/premium/03-eirra-hemp-estate-360/</a></td>
-        <td class="kto">Marek, Tomek</td>
-        <td class="uwaga">Panoramy 360°: pole, atelier, galeria — obracasz obraz myszką.</td>
-      </tr>
-      <tr>
-        <td class="co">Walk the field — spacer po polu w 3D</td>
-        <td class="link"><a class="url" href="https://holisphere-resorts.github.io/bioleafhub-demo-sites-89zz6m/walk/">https://holisphere-resorts.github.io/bioleafhub-demo-sites-89zz6m/walk/</a></td>
-        <td class="kto">Marek, Tomek</td>
-        <td class="uwaga">Chodzisz po polu, klikasz punkty. Ładuje się kilkanaście sekund, potrzebny dobry internet.</td>
-      </tr>
-      <tr>
-        <td class="co">Sklep EIRRA (wersja pokazowa)</td>
-        <td class="link"><a class="url" href="https://holisphere-resorts.github.io/eirra-shop-zd1emz/">https://holisphere-resorts.github.io/eirra-shop-zd1emz/</a></td>
-        <td class="kto">Marek, Tomek</td>
-        <td class="uwaga">Sklep premium marki EIRRA. Na razie pokaz — nie da się nic kupić.</td>
-      </tr>
-      <tr>
-        <td class="co">Notion — strona BIOLEAFHUB</td>
-        <td class="link"><a class="url" href="https://app.notion.com/p/3d89d5e31acf8151bfaaee06b4cf82f9">https://app.notion.com/p/3d89d5e31acf8151bfaaee06b4cf82f9</a></td>
-        <td class="kto">Marek</td>
-        <td class="uwaga">Dokumenty i zadania BIOLEAFHUB. Trzeba być zaproszonym.</td>
-      </tr>
-    </tbody>
-  </table>
+<section class="sec" style="--acc:#2F4A34">
+  <div class="sec-head">
+    <p class="eyebrow">Część pierwsza</p>
+    <h2>Wspólne</h2>
+  </div>
+  <p class="lead">Plan pracy, formularz po rozmowie, strategia i główna strona w Notion — dla całego zespołu.</p>
+  <div class="cards">
+
+    <a class="card" href="https://holisphere-resorts.github.io/plan-y3l4gk/">
+      <span class="card-name">Plan pracy (backlog) trzech biznesów</span>
+      <svg class="arrow" viewBox="0 0 12 12" aria-hidden="true"><path d="M3 9L9 3M9 3H4.2M9 3v4.8"/></svg>
+      <span class="card-desc">Zakładki u góry: Backlog, Kalendarz, Lista, Oś czasu, Zakupy. Przyciski „Marek” i „Tomek” pokazują tylko Twoje prośby.</span>
+      <span class="card-for">Marek, Tomek, Tatsiana/Reina</span>
+      <span class="card-url">https://holisphere-resorts.github.io/plan-y3l4gk/</span>
+    </a>
+
+    <a class="card" href="https://holisphere-resorts.github.io/plan-y3l4gk/rozmowa.html">
+      <span class="card-name">Formularz po rozmowie telefonicznej (30 sekund)</span>
+      <svg class="arrow" viewBox="0 0 12 12" aria-hidden="true"><path d="M3 9L9 3M9 3H4.2M9 3v4.8"/></svg>
+      <span class="card-desc">Zaraz po telefonie do firmy: kilka kliknięć, gotowy tekst wysyłasz na WhatsApp.</span>
+      <span class="card-for">Marek</span>
+      <span class="card-url">https://holisphere-resorts.github.io/plan-y3l4gk/rozmowa.html</span>
+    </a>
+
+    <a class="card" href="https://holisphere-resorts.github.io/plan-y3l4gk/strategia.html">
+      <span class="card-name">Strategia — dokąd idziemy</span>
+      <svg class="arrow" viewBox="0 0 12 12" aria-hidden="true"><path d="M3 9L9 3M9 3H4.2M9 3v4.8"/></svg>
+      <span class="card-desc">Cele i kolejne kroki, bez szczegółów technicznych.</span>
+      <span class="card-for">Marek, Tomek</span>
+      <span class="card-url">https://holisphere-resorts.github.io/plan-y3l4gk/strategia.html</span>
+    </a>
+
+    <a class="card" href="https://holisphere-resorts.github.io/plan-y3l4gk/linki.html">
+      <span class="card-name">Ten dokument online — wszystkie linki</span>
+      <svg class="arrow" viewBox="0 0 12 12" aria-hidden="true"><path d="M3 9L9 3M9 3H4.2M9 3v4.8"/></svg>
+      <span class="card-desc">Adres stały. Gdy dojdzie nowa strona, dopisujemy ją tutaj.</span>
+      <span class="card-for">cały zespół</span>
+      <span class="card-url">https://holisphere-resorts.github.io/plan-y3l4gk/linki.html</span>
+    </a>
+
+    <a class="card" href="https://app.notion.com/p/3d89d5e31acf818b84a0e529fcebd8bf">
+      <span class="card-name">Notion — strona główna START</span>
+      <svg class="arrow" viewBox="0 0 12 12" aria-hidden="true"><path d="M3 9L9 3M9 3H4.2M9 3v4.8"/></svg>
+      <span class="card-desc">Wspólne miejsce na dokumenty i zadania. Trzeba być zaproszonym — jeśli nie wchodzi, napisz do Tatsiany/Reiny.</span>
+      <span class="card-for">cały zespół</span>
+      <span class="card-url">https://app.notion.com/p/3d89d5e31acf818b84a0e529fcebd8bf</span>
+    </a>
+
+  </div>
 </section>
 
-<section>
-  <h2>3. HOLISPHERE — strona 3D, warianty, Notion</h2>
+<section class="sec" style="--acc:#3D6B3F">
+  <div class="sec-head">
+    <p class="eyebrow">Część druga</p>
+    <h2>BIOLEAFHUB</h2>
+  </div>
+  <p class="lead">Siedem pomysłów na stronę firmy, sklep EIRRA i Notion. Najpierw otwórz menu — z niego wchodzi się do wszystkich siedmiu. Niżej adresy każdej strony osobno.</p>
+  <div class="cards">
+
+    <a class="card" href="https://holisphere-resorts.github.io/bioleafhub-demo-sites-89zz6m/">
+      <span class="card-name">Menu — wszystkie 7 stron demo w jednym miejscu</span>
+      <svg class="arrow" viewBox="0 0 12 12" aria-hidden="true"><path d="M3 9L9 3M9 3H4.2M9 3v4.8"/></svg>
+      <span class="card-desc">Zacznij stąd. Przy każdym demo jest krótki opis.</span>
+      <span class="card-for">Marek, Tomek</span>
+      <span class="card-url">https://holisphere-resorts.github.io/bioleafhub-demo-sites-89zz6m/</span>
+    </a>
+
+    <a class="card" href="https://holisphere-resorts.github.io/bioleafhub-demo-sites-89zz6m/demo-v1/">
+      <span class="card-name">Demo 1 — butik / jubiler</span>
+      <svg class="arrow" viewBox="0 0 12 12" aria-hidden="true"><path d="M3 9L9 3M9 3H4.2M9 3v4.8"/></svg>
+      <span class="card-desc">Wygląd marki luksusowej: dużo miejsca, spokojne kolory, produkt jak biżuteria.</span>
+      <span class="card-for">Marek</span>
+      <span class="card-url">https://holisphere-resorts.github.io/bioleafhub-demo-sites-89zz6m/demo-v1/</span>
+    </a>
+
+    <a class="card" href="https://holisphere-resorts.github.io/bioleafhub-demo-sites-89zz6m/demo-v2/">
+      <span class="card-name">Demo 2 — apteka / laboratorium</span>
+      <svg class="arrow" viewBox="0 0 12 12" aria-hidden="true"><path d="M3 9L9 3M9 3H4.2M9 3v4.8"/></svg>
+      <span class="card-desc">Czysto, biało, badania i liczby na pierwszym planie. Karta dostawcy dla firm.</span>
+      <span class="card-for">Marek</span>
+      <span class="card-url">https://holisphere-resorts.github.io/bioleafhub-demo-sites-89zz6m/demo-v2/</span>
+    </a>
+
+    <a class="card" href="https://holisphere-resorts.github.io/bioleafhub-demo-sites-89zz6m/demo-v3/">
+      <span class="card-name">Demo 3 — natura / rzemiosło</span>
+      <svg class="arrow" viewBox="0 0 12 12" aria-hidden="true"><path d="M3 9L9 3M9 3H4.2M9 3v4.8"/></svg>
+      <span class="card-desc">Pole, ręczna robota, ciepłe zdjęcia.</span>
+      <span class="card-for">Marek</span>
+      <span class="card-url">https://holisphere-resorts.github.io/bioleafhub-demo-sites-89zz6m/demo-v3/</span>
+    </a>
+
+    <a class="card" href="https://holisphere-resorts.github.io/bioleafhub-demo-sites-89zz6m/premium/01-bioleafhub-material-atlas/">
+      <span class="card-name">Premium 1 — Material Atlas</span>
+      <svg class="arrow" viewBox="0 0 12 12" aria-hidden="true"><path d="M3 9L9 3M9 3H4.2M9 3v4.8"/></svg>
+      <span class="card-desc">Strona jak katalog materiałów: surowiec, badanie, formuła.</span>
+      <span class="card-for">Marek, Tomek</span>
+      <span class="card-url">https://holisphere-resorts.github.io/bioleafhub-demo-sites-89zz6m/premium/01-bioleafhub-material-atlas/</span>
+    </a>
+
+    <a class="card" href="https://holisphere-resorts.github.io/bioleafhub-demo-sites-89zz6m/premium/02-eirra-objects-of-quiet/">
+      <span class="card-name">Premium 2 — EIRRA, Objects of Quiet</span>
+      <svg class="arrow" viewBox="0 0 12 12" aria-hidden="true"><path d="M3 9L9 3M9 3H4.2M9 3v4.8"/></svg>
+      <span class="card-desc">Marka EIRRA jako ciche, drogie przedmioty. Styl magazynu.</span>
+      <span class="card-for">Marek, Tomek</span>
+      <span class="card-url">https://holisphere-resorts.github.io/bioleafhub-demo-sites-89zz6m/premium/02-eirra-objects-of-quiet/</span>
+    </a>
+
+    <a class="card" href="https://holisphere-resorts.github.io/bioleafhub-demo-sites-89zz6m/premium/03-eirra-hemp-estate-360/">
+      <span class="card-name">Premium 3 — EIRRA, Hemp Estate 360</span>
+      <svg class="arrow" viewBox="0 0 12 12" aria-hidden="true"><path d="M3 9L9 3M9 3H4.2M9 3v4.8"/></svg>
+      <span class="card-desc">Panoramy 360°: pole, atelier, galeria — obracasz obraz myszką.</span>
+      <span class="card-for">Marek, Tomek</span>
+      <span class="card-url">https://holisphere-resorts.github.io/bioleafhub-demo-sites-89zz6m/premium/03-eirra-hemp-estate-360/</span>
+    </a>
+
+    <a class="card" href="https://holisphere-resorts.github.io/bioleafhub-demo-sites-89zz6m/walk/">
+      <span class="card-name">Walk the field — spacer po polu w 3D</span>
+      <svg class="arrow" viewBox="0 0 12 12" aria-hidden="true"><path d="M3 9L9 3M9 3H4.2M9 3v4.8"/></svg>
+      <span class="card-desc">Chodzisz po polu, klikasz punkty. Ładuje się kilkanaście sekund, potrzebny dobry internet.</span>
+      <span class="card-for">Marek, Tomek</span>
+      <span class="card-url">https://holisphere-resorts.github.io/bioleafhub-demo-sites-89zz6m/walk/</span>
+    </a>
+
+    <a class="card" href="https://holisphere-resorts.github.io/eirra-shop-zd1emz/">
+      <span class="card-name">Sklep EIRRA (wersja pokazowa)</span>
+      <svg class="arrow" viewBox="0 0 12 12" aria-hidden="true"><path d="M3 9L9 3M9 3H4.2M9 3v4.8"/></svg>
+      <span class="card-desc">Sklep premium marki EIRRA. Na razie pokaz — nie da się nic kupić.</span>
+      <span class="card-for">Marek, Tomek</span>
+      <span class="card-url">https://holisphere-resorts.github.io/eirra-shop-zd1emz/</span>
+    </a>
+
+    <a class="card" href="https://app.notion.com/p/3d89d5e31acf8151bfaaee06b4cf82f9">
+      <span class="card-name">Notion — strona BIOLEAFHUB</span>
+      <svg class="arrow" viewBox="0 0 12 12" aria-hidden="true"><path d="M3 9L9 3M9 3H4.2M9 3v4.8"/></svg>
+      <span class="card-desc">Dokumenty i zadania BIOLEAFHUB. Trzeba być zaproszonym.</span>
+      <span class="card-for">Marek</span>
+      <span class="card-url">https://app.notion.com/p/3d89d5e31acf8151bfaaee06b4cf82f9</span>
+    </a>
+
+  </div>
+</section>
+
+<section class="sec" style="--acc:#123524">
+  <div class="sec-head">
+    <p class="eyebrow">Część trzecia</p>
+    <h2>HOLISPHERE</h2>
+  </div>
   <p class="lead">Strona główna 3D to wersja opublikowana. Warianty to archiwum wcześniejszych pomysłów — do porównania.</p>
-  <table>
-    <thead><tr><th>Co to</th><th>Link</th><th>Dla kogo</th><th>Uwaga</th></tr></thead>
-    <tbody>
-      <tr>
-        <td class="co">Strona 3D HOLISPHERE — wersja główna</td>
-        <td class="link"><a class="url" href="https://holisphere-resorts.github.io/holisphere-3d-site-3hmuac/">https://holisphere-resorts.github.io/holisphere-3d-site-3hmuac/</a></td>
-        <td class="kto">Tomek, Marek</td>
-        <td class="uwaga">Klikasz w punkt i przenosisz się do środka. Najlepiej na komputerze.</td>
-      </tr>
-      <tr>
-        <td class="co">Menu — 5 wcześniejszych wariantów strony 3D</td>
-        <td class="link"><a class="url" href="https://holisphere-resorts.github.io/holisphere-3d-variants-olkls1/">https://holisphere-resorts.github.io/holisphere-3d-variants-olkls1/</a></td>
-        <td class="kto">Tomek</td>
-        <td class="uwaga">Zacznij stąd. Jest tu też szkic do narzędzia Marble.</td>
-      </tr>
-      <tr>
-        <td class="co">Wariant 1 — Original 360 (wersja 5)</td>
-        <td class="link"><a class="url" href="https://holisphere-resorts.github.io/holisphere-3d-variants-olkls1/holisphere-original-360-v5/">https://holisphere-resorts.github.io/holisphere-3d-variants-olkls1/holisphere-original-360-v5/</a></td>
-        <td class="kto">Tomek</td>
-        <td class="uwaga">Z niej powstała strona opublikowana.</td>
-      </tr>
-      <tr>
-        <td class="co">Wariant 2 — Photo World (wersja 4)</td>
-        <td class="link"><a class="url" href="https://holisphere-resorts.github.io/holisphere-3d-variants-olkls1/holisphere-world-photo-v4/">https://holisphere-resorts.github.io/holisphere-3d-variants-olkls1/holisphere-world-photo-v4/</a></td>
-        <td class="kto">Tomek</td>
-        <td class="uwaga">Świat ze zdjęć: przelot nad wyspą, potem wejście do miejsc.</td>
-      </tr>
-      <tr>
-        <td class="co">Wariant 3 — World (wersja 2)</td>
-        <td class="link"><a class="url" href="https://holisphere-resorts.github.io/holisphere-3d-variants-olkls1/holisphere-world-v2/">https://holisphere-resorts.github.io/holisphere-3d-variants-olkls1/holisphere-world-v2/</a></td>
-        <td class="kto">Tomek</td>
-        <td class="uwaga">Mapa wysp i spacer między miejscami, prostsza grafika.</td>
-      </tr>
-      <tr>
-        <td class="co">Wariant 4 — Wow</td>
-        <td class="link"><a class="url" href="https://holisphere-resorts.github.io/holisphere-3d-variants-olkls1/holisphere-wow/">https://holisphere-resorts.github.io/holisphere-3d-variants-olkls1/holisphere-wow/</a></td>
-        <td class="kto">Tomek</td>
-        <td class="uwaga">Pierwsza próba mocnego wejścia na stronę.</td>
-      </tr>
-      <tr>
-        <td class="co">Wariant 5 — Cinematic (wersja 3)</td>
-        <td class="link"><a class="url" href="https://holisphere-resorts.github.io/holisphere-3d-variants-olkls1/holisphere-cinematic-v3/">https://holisphere-resorts.github.io/holisphere-3d-variants-olkls1/holisphere-cinematic-v3/</a></td>
-        <td class="kto">Tomek</td>
-        <td class="uwaga">Przewijasz stronę, obraz zmienia się jak w filmie. Filmy nie są wgrane — w tle same zdjęcia.</td>
-      </tr>
-      <tr>
-        <td class="co">Notion — strona HOLISPHERE</td>
-        <td class="link"><a class="url" href="https://app.notion.com/p/3d89d5e31acf81b9a6a0c03c1a50d44d">https://app.notion.com/p/3d89d5e31acf81b9a6a0c03c1a50d44d</a></td>
-        <td class="kto">Tomek</td>
-        <td class="uwaga">Dokumenty i zadania HOLISPHERE. Trzeba być zaproszonym.</td>
-      </tr>
-    </tbody>
-  </table>
+  <div class="cards">
+
+    <a class="card" href="https://holisphere-resorts.github.io/holisphere-3d-site-3hmuac/">
+      <span class="card-name">Strona 3D HOLISPHERE — wersja główna</span>
+      <svg class="arrow" viewBox="0 0 12 12" aria-hidden="true"><path d="M3 9L9 3M9 3H4.2M9 3v4.8"/></svg>
+      <span class="card-desc">Klikasz w punkt i przenosisz się do środka. Najlepiej na komputerze.</span>
+      <span class="card-for">Tomek, Marek</span>
+      <span class="card-url">https://holisphere-resorts.github.io/holisphere-3d-site-3hmuac/</span>
+    </a>
+
+    <a class="card" href="https://holisphere-resorts.github.io/holisphere-3d-variants-olkls1/">
+      <span class="card-name">Menu — 5 wcześniejszych wariantów strony 3D</span>
+      <svg class="arrow" viewBox="0 0 12 12" aria-hidden="true"><path d="M3 9L9 3M9 3H4.2M9 3v4.8"/></svg>
+      <span class="card-desc">Zacznij stąd. Jest tu też szkic do narzędzia Marble.</span>
+      <span class="card-for">Tomek</span>
+      <span class="card-url">https://holisphere-resorts.github.io/holisphere-3d-variants-olkls1/</span>
+    </a>
+
+    <a class="card" href="https://holisphere-resorts.github.io/holisphere-3d-variants-olkls1/holisphere-original-360-v5/">
+      <span class="card-name">Wariant 1 — Original 360 (wersja 5)</span>
+      <svg class="arrow" viewBox="0 0 12 12" aria-hidden="true"><path d="M3 9L9 3M9 3H4.2M9 3v4.8"/></svg>
+      <span class="card-desc">Z niej powstała strona opublikowana.</span>
+      <span class="card-for">Tomek</span>
+      <span class="card-url">https://holisphere-resorts.github.io/holisphere-3d-variants-olkls1/holisphere-original-360-v5/</span>
+    </a>
+
+    <a class="card" href="https://holisphere-resorts.github.io/holisphere-3d-variants-olkls1/holisphere-world-photo-v4/">
+      <span class="card-name">Wariant 2 — Photo World (wersja 4)</span>
+      <svg class="arrow" viewBox="0 0 12 12" aria-hidden="true"><path d="M3 9L9 3M9 3H4.2M9 3v4.8"/></svg>
+      <span class="card-desc">Świat ze zdjęć: przelot nad wyspą, potem wejście do miejsc.</span>
+      <span class="card-for">Tomek</span>
+      <span class="card-url">https://holisphere-resorts.github.io/holisphere-3d-variants-olkls1/holisphere-world-photo-v4/</span>
+    </a>
+
+    <a class="card" href="https://holisphere-resorts.github.io/holisphere-3d-variants-olkls1/holisphere-world-v2/">
+      <span class="card-name">Wariant 3 — World (wersja 2)</span>
+      <svg class="arrow" viewBox="0 0 12 12" aria-hidden="true"><path d="M3 9L9 3M9 3H4.2M9 3v4.8"/></svg>
+      <span class="card-desc">Mapa wysp i spacer między miejscami, prostsza grafika.</span>
+      <span class="card-for">Tomek</span>
+      <span class="card-url">https://holisphere-resorts.github.io/holisphere-3d-variants-olkls1/holisphere-world-v2/</span>
+    </a>
+
+    <a class="card" href="https://holisphere-resorts.github.io/holisphere-3d-variants-olkls1/holisphere-wow/">
+      <span class="card-name">Wariant 4 — Wow</span>
+      <svg class="arrow" viewBox="0 0 12 12" aria-hidden="true"><path d="M3 9L9 3M9 3H4.2M9 3v4.8"/></svg>
+      <span class="card-desc">Pierwsza próba mocnego wejścia na stronę.</span>
+      <span class="card-for">Tomek</span>
+      <span class="card-url">https://holisphere-resorts.github.io/holisphere-3d-variants-olkls1/holisphere-wow/</span>
+    </a>
+
+    <a class="card" href="https://holisphere-resorts.github.io/holisphere-3d-variants-olkls1/holisphere-cinematic-v3/">
+      <span class="card-name">Wariant 5 — Cinematic (wersja 3)</span>
+      <svg class="arrow" viewBox="0 0 12 12" aria-hidden="true"><path d="M3 9L9 3M9 3H4.2M9 3v4.8"/></svg>
+      <span class="card-desc">Przewijasz stronę, obraz zmienia się jak w filmie. Filmy nie są wgrane — w tle same zdjęcia.</span>
+      <span class="card-for">Tomek</span>
+      <span class="card-url">https://holisphere-resorts.github.io/holisphere-3d-variants-olkls1/holisphere-cinematic-v3/</span>
+    </a>
+
+    <a class="card" href="https://app.notion.com/p/3d89d5e31acf81b9a6a0c03c1a50d44d">
+      <span class="card-name">Notion — strona HOLISPHERE</span>
+      <svg class="arrow" viewBox="0 0 12 12" aria-hidden="true"><path d="M3 9L9 3M9 3H4.2M9 3v4.8"/></svg>
+      <span class="card-desc">Dokumenty i zadania HOLISPHERE. Trzeba być zaproszonym.</span>
+      <span class="card-for">Tomek</span>
+      <span class="card-url">https://app.notion.com/p/3d89d5e31acf81b9a6a0c03c1a50d44d</span>
+    </a>
+
+  </div>
 </section>
 
-<section>
-  <h2>4. TechFun</h2>
+<section class="sec" style="--acc:#6B4A2E">
+  <div class="sec-head">
+    <p class="eyebrow">Część czwarta</p>
+    <h2>TechFun</h2>
+  </div>
   <p class="lead">Strona i demo — w przygotowaniu. Na razie jest tylko miejsce na dokumenty i zadania.</p>
-  <table>
-    <thead><tr><th>Co to</th><th>Link</th><th>Dla kogo</th><th>Uwaga</th></tr></thead>
-    <tbody>
-      <tr>
-        <td class="co">Notion — strona TechFun</td>
-        <td class="link"><a class="url" href="https://app.notion.com/p/3d89d5e31acf8114a412ea7755f1992d">https://app.notion.com/p/3d89d5e31acf8114a412ea7755f1992d</a></td>
-        <td class="kto">Marek, Tomek</td>
-        <td class="uwaga">Dokumenty i zadania TechFun. Trzeba być zaproszonym.</td>
-      </tr>
-      <tr>
-        <td class="co">Strona TechFun i demo</td>
-        <td class="link">strona i demo — w przygotowaniu</td>
-        <td class="kto">—</td>
-        <td class="uwaga">Gdy powstanie, dopiszemy adres do tego dokumentu.</td>
-      </tr>
-    </tbody>
-  </table>
+  <div class="cards">
+
+    <a class="card" href="https://app.notion.com/p/3d89d5e31acf8114a412ea7755f1992d">
+      <span class="card-name">Notion — strona TechFun</span>
+      <svg class="arrow" viewBox="0 0 12 12" aria-hidden="true"><path d="M3 9L9 3M9 3H4.2M9 3v4.8"/></svg>
+      <span class="card-desc">Dokumenty i zadania TechFun. Trzeba być zaproszonym.</span>
+      <span class="card-for">Marek, Tomek</span>
+      <span class="card-url">https://app.notion.com/p/3d89d5e31acf8114a412ea7755f1992d</span>
+    </a>
+
+    <div class="card card--soon">
+      <span class="card-name">Strona TechFun i demo</span>
+      <span class="card-desc">Gdy powstanie, dopiszemy adres do tego dokumentu.</span>
+      <span class="card-url">strona i demo — w przygotowaniu</span>
+    </div>
+
+  </div>
 </section>
 
-<p class="note"><strong>Ważne:</strong> Adresy stron demo są ukryte: nie ma ich w Google, działają tylko z tego linku. Nie wysyłać dalej poza zespół.</p>
-
-<footer>HOLISPHERE · BIOLEAFHUB · TechFun — dokument wewnętrzny zespołu, stan: 11.09.2026.</footer>
+<div class="close">
+  <p class="note"><b>Ważne</b>Adresy stron demo są ukryte: nie ma ich w Google, działają tylko z tego linku. Nie wysyłać dalej poza zespół.</p>
+  <p class="foot"><span class="fbrand">HOLISPHERE · BIOLEAFHUB · TechFun</span>Dokument wewnętrzny zespołu, stan: 11.09.2026.<br>Ten dokument online: <a href="https://holisphere-resorts.github.io/plan-y3l4gk/linki.html">https://holisphere-resorts.github.io/plan-y3l4gk/linki.html</a></p>
+</div>
 
 </div>
 </body>
