@@ -27,6 +27,7 @@
 html{-webkit-text-size-adjust:100%;}
 body{
   margin:0;
+  overflow-x:hidden;
   background:var(--paper);
   color:var(--ink);
   font-family:var(--sans);
@@ -83,7 +84,7 @@ body{
   font-size:13px;line-height:1.5;color:rgba(242,238,226,.72);
   border-top:1px solid rgba(201,162,74,.3);padding-top:14px;margin:0;
 }
-.cover-online a{color:var(--gold);text-decoration:none;font-family:var(--mono);font-size:12px;overflow-wrap:anywhere;word-break:break-word;display:block;margin-top:4px;}
+.cover-online a{color:var(--gold);text-decoration:none;font-family:var(--mono);font-size:12px;word-break:break-all;overflow-wrap:anywhere;word-break:break-word;min-width:0;display:block;margin-top:4px;}
 
 /* ---------- SECTIONS ---------- */
 .sec{padding:0 18px 34px;}
@@ -142,10 +143,11 @@ body{
 }
 .card-url{
   display:block;
+  word-break:break-all;
   font-family:var(--mono);
   font-size:12px;line-height:1.5;
   color:var(--acc);
-  overflow-wrap:anywhere;word-break:break-word;
+  overflow-wrap:anywhere;word-break:break-word;min-width:0;
   border-top:1px solid var(--rule);
   padding-top:8px;
 }
@@ -169,7 +171,7 @@ body{
   border-top:1px solid var(--rule);padding-top:14px;
   font-size:13px;line-height:1.55;color:var(--muted);
 }
-.foot a{color:var(--gold-ink);font-family:var(--mono);font-size:12px;overflow-wrap:anywhere;word-break:break-word;text-decoration:none;}
+.foot a{color:var(--gold-ink);font-family:var(--mono);font-size:12px;word-break:break-all;overflow-wrap:anywhere;word-break:break-word;min-width:0;text-decoration:none;}
 .foot .fbrand{font-family:var(--serif);font-size:17px;color:var(--green-deep);display:block;margin-bottom:4px;}
 
 @media (min-width:620px){
